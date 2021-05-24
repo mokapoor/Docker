@@ -13,8 +13,10 @@ RUN export JAVA_DIR=$(ls -ld /usr/java/*) && \
     update-alternatives --set javac /usr/java/bin/javac && \
     update-alternatives --set jar /usr/java/bin/jar
 
-RUN useradd -ms /bin/bash devops && yum install -y vi wget && mkdir /data && chmod -R 777 /data /usr/java/ && chown -R devops. /usr/java /data && echo "devops ALL=(ALL)  ALL" >> /etc/sudoers
-
+#RUN useradd -ms /bin/bash devops && yum install -y vi wget && mkdir /data && chmod -R 777 /data /usr/java/ && chown -R devops. /usr/java /data && echo "devops ALL=(ALL)  ALL" >> /etc/sudoers
+RUN useradd -ms /bin/bash devops
+RUN yum install -y vi wget && mkdir /data && chmod -R 777 /data
+RUN echo "devops ALL=(ALL)  ALL" >> /etc/sudoers
 COPY pack/* /data/
 #ADD /oracle/web12/weblogic.txt /data/
 
