@@ -1,0 +1,2 @@
+Download the JDK from below location.
+https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html
